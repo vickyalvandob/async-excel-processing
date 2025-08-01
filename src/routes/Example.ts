@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { authenticateJWT } from "../middlewares/authJwt";
+import * as ExampleController from "$controllers/rest/ExampleController"
 
-const router = Router();
+const ExampleRoutes = Router({mergeParams:true}) // mergeParams = true -> to enable parsing query params
 
-router.get("/private", authenticateJWT, (req, res) => {
-  // @ts-ignore
-  res.json({ message: "JWT valid!", user: req.user });
-});
+ExampleRoutes.get("/",
+    ExampleController.get
+)
 
-export default router;
+export default ExampleRoutes

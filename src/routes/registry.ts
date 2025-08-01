@@ -1,9 +1,9 @@
 import { Router } from "express";
 import authRoutes from "./auth.route";
-import exampleRoutes from "./Example";
+import fileRoutes from "./file.route";
 
 const router = Router();
 router.use("/api", authRoutes);
-router.use("/api", exampleRoutes);
+router.use("/api", fileRoutes);
 
 export default router;
