@@ -1,7 +1,9 @@
-import ExampleRoutes from "./Example";
+import { Router } from "express";
+import authRoutes from "./auth.route";
+import fileRoutes from "./file.route";
 
-const RoutesRegistry = {
-    ExampleRoutes
-};
+const router = Router();
+router.use("/api", authRoutes);
+router.use("/api", fileRoutes);
 
-export default RoutesRegistry;
+export default router;
