@@ -3,8 +3,6 @@ import "./paths";
 import app from "./app/instance";
 import { displayAsciiArt } from "$utils/ascii_art.utils";
 import { REST_ASCII_ART } from './utils/ascii_art.utils';
-
-// === Tambahkan import worker di sini ===
 import { startFileImportWorker } from "./server/services/fileWorker";
 
 function parseArguments(args: string[]): Record<string, string> {
@@ -20,7 +18,6 @@ function parseArguments(args: string[]): Record<string, string> {
 
 const parsedArgs = parseArguments(process.argv);
 
-// Untuk development, jalankan langsung listen
 const PORT = process.env.PORT || 3000;
 if (!parsedArgs["service"] || parsedArgs["service"] === "rest") {
   displayAsciiArt(REST_ASCII_ART);
